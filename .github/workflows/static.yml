@@ -6,6 +6,10 @@ on:
   push:
     branches: ["main"]
 
+  # Redeploys on 1 January (Singapore time) so the copyright year rolls over
+  schedule:
+    - cron: '5 16 31 12 *'
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -31,6 +35,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set copyright year
+        run: |
+          year=$(TZ=Asia/Singapore date +%Y)
+          sed -i "s/&copy; [0-9]\{4\}/\&copy; $year/" index.html
+          grep -q "&copy; $year" index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

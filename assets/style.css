@@ -1,11 +1,3 @@
-@font-face {
-  font-family: "Albert Sans";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: fallback;
-  src: url("fonts/AlbertSans-VariableFont_wght.woff2") format("woff2");
-}
-
 :root {
   --background: #ffffff;
   --foreground: #111111;
@@ -50,9 +42,10 @@ a { color: inherit; text-underline-offset: 0.2em; }
 .site-title a { text-decoration: none; }
 .site-title a:hover { text-decoration: underline; }
 
-.site-header { padding-bottom: clamp(48px, 9vw, 64px); }
+.site-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 48px; }
+.menu-icon { display: block; width: 36px; height: 30px; margin-right: -6px; fill: currentColor; }
 
-.layout { display: flex; gap: 2em; }
+.layout { display: flex; gap: 1.5rem; }
 
 .sidebar-col { flex-basis: 23%; flex-shrink: 0; }
 
@@ -69,11 +62,12 @@ a { color: inherit; text-underline-offset: 0.2em; }
 .social a { display: block; color: var(--foreground); }
 .social svg { display: block; width: 24px; height: 24px; fill: currentColor; }
 
-.main-col { flex-basis: 77%; min-width: 0; }
+.main-col { flex: 1; min-width: 0; }
 
 .hero { min-height: 90vh; }
 .hero > * { margin: 0; }
 .hero > * + * { margin-top: 2rem; }
+.hero h1, .hero h2 { font-weight: 600; letter-spacing: -0.03em; }
 
 .hero h1 {
   color: var(--secondary);
@@ -89,7 +83,7 @@ a { color: inherit; text-underline-offset: 0.2em; }
 .separator {
   width: 100%;
   height: 10px;
-  margin: 0;
+  margin: clamp(1.5rem, 6.4vw, 2rem) 0 0;
   border: none;
   color: var(--tertiary);
   background-image: linear-gradient(-45deg, currentColor 25%, transparent 25%, transparent 50%, currentColor 50%, currentColor 75%, transparent 75%, transparent);
@@ -98,14 +92,18 @@ a { color: inherit; text-underline-offset: 0.2em; }
 
 .site-footer {
   display: flex;
+  margin-top: clamp(1.5rem, 6.4vw, 2rem);
   gap: 0.5em;
   align-items: baseline;
   padding-top: clamp(48px, 9vw, 64px);
   font-size: var(--size-small);
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .site-footer p { margin: 0; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
 .site-footer .copyright { font-size: var(--size-tiny); }
 
 .screen-reader-text {
@@ -124,8 +122,4 @@ a { color: inherit; text-underline-offset: 0.2em; }
 @media (max-width: 781px) {
   .layout { display: block; }
   .sidebar-col { display: none; }
-  .site-header { padding-bottom: 32px; }
-  .hero { min-height: auto; padding-bottom: 48px; }
-  .hero > * + * { margin-top: 1.25rem; }
-  .hero h2 { font-size: clamp(22px, 6.5vw, 33px); line-height: 1.25; }
 }
