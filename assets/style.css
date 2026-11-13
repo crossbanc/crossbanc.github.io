@@ -43,7 +43,7 @@ a { color: inherit; text-underline-offset: 0.2em; }
 .site-title a:hover { text-decoration: underline; }
 
 .site-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 48px; }
-.menu-icon { display: block; width: 36px; height: 30px; margin-right: -6px; fill: currentColor; }
+.menu-icon { display: block; width: 36px; height: 30px; margin: -1px -6px -1px 0; fill: currentColor; }
 
 .layout { display: flex; gap: 1.5rem; }
 
